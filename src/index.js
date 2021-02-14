@@ -1,12 +1,28 @@
+// default React stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// inject redux
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import gameState from './store/reducer';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// https://daveceddia.com/what-is-a-thunk/
+const store = createStore(
+  gameState,
+  applyMiddleware(thunk),
+)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider 
+      store={ store }
+    >
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
