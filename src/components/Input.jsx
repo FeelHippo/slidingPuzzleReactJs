@@ -33,7 +33,10 @@ const FileUploader = props => {
 
     return (
         <>
-            <Button onClick={handleClick}>
+            <Button 
+                onClick={handleClick}
+                style={{ marginTop: '5rem' }}
+            >
                 Select an Image!
             </Button>
             <input 

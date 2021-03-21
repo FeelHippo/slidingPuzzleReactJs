@@ -1,5 +1,4 @@
 const { PNG } = require('pngjs');
-const jsqr = require('jsqr');
 
 export const imageToBase64 = async imageFile => {
     return await new Promise(resolve => {
@@ -27,6 +26,7 @@ const sliceTiles = picture => {
     const tileWidth = canvas.width / 4;
     const tileHeight = canvas.height / 4;
     let oneElementIsBlank =  false;
+    // by default board will be 4 x 4 tiles
     for (let x = 0; x < 4; x++) {
         for (let y = 0; y < 4; y++) {
             let imageData = context.getImageData(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
@@ -34,6 +34,7 @@ const sliceTiles = picture => {
             tempCanvas.width = tileWidth;
             tempCanvas.height = tileHeight;
             const tempContext = tempCanvas.getContext('2d');
+            // create blank/transparent tile
             if (Math.random() < 0.2 && !oneElementIsBlank) {
                 imageData = context.createImageData(tileWidth, tileHeight);
                 oneElementIsBlank = true;

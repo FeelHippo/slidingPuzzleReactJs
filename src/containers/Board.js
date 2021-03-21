@@ -13,7 +13,7 @@ export class Board extends Component {
 
     componentDidMount() {
         if (this.props.gameOver) this.setState({
-            winner: true,
+            winner: false,
         })
     }
 
@@ -23,7 +23,7 @@ export class Board extends Component {
             <div>
                 {
                     this.state.winner ? (
-                        <image alt="winner" src={this.props.imageFile} />
+                        <img className="board" alt="winner" src={this.props.imageFile} />
                     ) : (
                         <div className="board">
                             {
