@@ -19,7 +19,7 @@ code {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 
-  .board__gameBoard {
+  &__gameBoard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1px;

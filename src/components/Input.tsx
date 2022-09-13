@@ -14,19 +14,21 @@ const Button = styled.button`
     border: 2px solid tomato;
 `;
 
-const FileUploader = props => {
+const FileUploader: React.FC = () => {
     // reference to hidden file input element
-    const hiddenFileInput = React.useRef(null);
+    const hiddenFileInput = React.useRef<HTMLInputElement>(null);
 
     // when Button styled component is clicked, programmatically click the hidden input
-    const handleClick = event => {
+    const handleClick = () => {
+        if (!hiddenFileInput.current) return;
         hiddenFileInput.current.click();
     };
 
     // save file to redux store
     // https://thoughtbot.com/blog/using-redux-with-react-hooks
     const dispatch = useDispatch();
-    const handleChange = event => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) return;
         const fileUploaded = event.target.files[0];
         dispatch(uploadFile(fileUploaded));
     };

@@ -1,6 +1,0 @@
-export const gameTypes = {
-    UPLOAD_FILE: 'UPLOAD_FILE',
-    INIT_TILES: 'INIT_TILES',
-    SHUFFLED_TILES: 'SHUFFLED_TILES',
-    GAME_OVER: 'GAME_OVER',
-}
